@@ -36,7 +36,6 @@ const Contact: React.FC = () => {
         body: JSON.stringify(contactForm),
       });
 
-      const data = await res.json();
       if (res.status === 200) {
         setFormStatus("Message Sent! Thank you for reaching out.");
         setContactForm({ name: "", email: "", message: "" });
@@ -119,24 +118,23 @@ const Contact: React.FC = () => {
               value={contactForm.message}
               onChange={handleInputChange}
               className="w-full p-4 mt-2 border-2 border-[#658354] rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-[#4b6043]"
-              rows={6}
+              rows={5}
               required
-            />
+            ></textarea>
           </div>
 
-          {/* Send Message Button */}
           <button
             type="submit"
-            className="w-full py-3 bg-[#4b6043] text-white text-lg font-montserrat rounded-lg hover:bg-[#658354] transition duration-200 focus:outline-none focus:ring-2 focus:ring-[#4b6043] border-2 border-[#658354] text-center"
+            className="w-full bg-[#4b6043] text-white text-lg font-semibold py-3 rounded-lg hover:bg-[#658354] focus:outline-none focus:ring-2 focus:ring-[#658354]"
           >
             Send Message
           </button>
         </form>
 
         {formStatus && (
-          <div className="mt-6 text-center text-lg font-montserrat font-semibold text-[#658354]">
+          <p className="mt-4 text-center text-lg font-montserrat text-[#4b6043]">
             {formStatus}
-          </div>
+          </p>
         )}
       </div>
     </div>

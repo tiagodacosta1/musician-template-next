@@ -101,59 +101,19 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="p-6 border-2 border-[#4b6043] rounded-lg">
             <p className="text-sm font-light italic">
-              "Sophia's performances are mesmerizing. Her passion and skill
-              bring music to life in a way that deeply moves her audience."
+              &quot;Sophia&apos;s performances are mesmerizing. Her passion and
+              skill bring music to life in a way that deeply moves her
+              audience.&quot;
             </p>
             <p className="mt-4 text-right font-medium">– Music Critic</p>
           </div>
           <div className="p-6 border-2 border-[#4b6043] rounded-lg">
             <p className="text-sm font-light italic">
-              "Working with Sophia was an incredible experience. She brings an
-              unmatched professionalism and artistry to every collaboration."
+              &quot;Working with Sophia was an incredible experience. She brings
+              an unparalleled energy and artistry to every performance.&quot;
             </p>
-            <p className="mt-4 text-right font-medium">
-              – Chamber Music Partner
-            </p>
+            <p className="mt-4 text-right font-medium">– Collaborator</p>
           </div>
-        </div>
-      </div>
-
-      {/* Quick Links Section */}
-      <div className="mt-16 px-8 lg:px-16 text-center">
-        <h2 className="text-2xl lg:text-3xl font-semibold uppercase mb-8">
-          Quick Links
-        </h2>
-        <div className="flex flex-wrap justify-center space-x-4">
-          <Link
-            href="/biography"
-            className="px-6 py-3 border-2 border-[#4b6043] rounded-lg uppercase text-sm font-medium tracking-wider hover:bg-[#4b6043] hover:text-white transition mb-4"
-          >
-            Biography
-          </Link>
-          <Link
-            href="/concerts"
-            className="px-6 py-3 border-2 border-[#4b6043] rounded-lg uppercase text-sm font-medium tracking-wider hover:bg-[#4b6043] hover:text-white transition mb-4"
-          >
-            Concerts
-          </Link>
-          <Link
-            href="/discography"
-            className="px-6 py-3 border-2 border-[#4b6043] rounded-lg uppercase text-sm font-medium tracking-wider hover:bg-[#4b6043] hover:text-white transition mb-4"
-          >
-            Discography
-          </Link>
-          <Link
-            href="/scores"
-            className="px-6 py-3 border-2 border-[#4b6043] rounded-lg uppercase text-sm font-medium tracking-wider hover:bg-[#4b6043] hover:text-white transition mb-4"
-          >
-            Scores
-          </Link>
-          <Link
-            href="/videos"
-            className="px-6 py-3 border-2 border-[#4b6043] rounded-lg uppercase text-sm font-medium tracking-wider hover:bg-[#4b6043] hover:text-white transition mb-4"
-          >
-            Videos
-          </Link>
         </div>
       </div>
     </div>

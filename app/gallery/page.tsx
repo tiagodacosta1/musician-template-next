@@ -2,11 +2,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-interface GalleryImage {
-  imageUrl: string;
-  alt: string;
-}
-
 const GalleryPage: React.FC = () => {
   const data = {
     pageImage: {

@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
       </div>
 
       {/* Main Title */}
-      <div className="font-merriweather text-4xl font-bold text-center uppercase my-8 text-[#4b6043]">
+      <div className="font-merriweather text-4xl text-center uppercase my-8 text-[#4b6043]">
         Get in Touch
       </div>
 
@@ -127,7 +127,7 @@ const Contact: React.FC = () => {
           {/* Send Message Button */}
           <button
             type="submit"
-            className="w-full py-3 bg-[#4b6043] text-white text-lg font-montserrat rounded-lg hover:bg-[#658354] transition duration-200 focus:outline-none focus:ring-2 focus:ring-[#4b6043] border-2 border-[#658354]"
+            className="w-full py-3 bg-[#4b6043] text-white text-lg font-montserrat rounded-lg hover:bg-[#658354] transition duration-200 focus:outline-none focus:ring-2 focus:ring-[#4b6043] border-2 border-[#658354] text-center"
           >
             Send Message
           </button>
@@ -138,41 +138,6 @@ const Contact: React.FC = () => {
             {formStatus}
           </div>
         )}
-      </div>
-
-      {/* Footer Section */}
-      <div className="mt-12 text-center">
-        <p className="text-[#4b6043] font-montserrat text-lg">
-          Want to stay updated? Follow me on social media.
-        </p>
-
-        {/* Social Media Links (Icons) */}
-        <div className="flex justify-center mt-6 space-x-8">
-          <a
-            href="https://facebook.com" // Replace with actual link
-            className="text-blue-600 hover:text-blue-700 transition duration-200"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaFacebook size={30} />
-          </a>
-          <a
-            href="https://instagram.com" // Replace with actual link
-            className="text-pink-600 hover:text-pink-700 transition duration-200"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaInstagram size={30} />
-          </a>
-          <a
-            href="https://linkedin.com" // Replace with actual link
-            className="text-blue-800 hover:text-blue-900 transition duration-200"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedin size={30} />
-          </a>
-        </div>
       </div>
     </div>
   );

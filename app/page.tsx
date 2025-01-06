@@ -49,6 +49,7 @@ export default function Home() {
           Highlights of My Journey
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Highlight 1 */}
           <div className="p-6 border-2 border-[#4b6043] rounded-lg text-center">
             <h3 className="text-xl font-medium uppercase mb-4">Award Winner</h3>
             <p className="text-sm font-light">
@@ -56,6 +57,7 @@ export default function Home() {
               competition.
             </p>
           </div>
+          {/* Highlight 2 */}
           <div className="p-6 border-2 border-[#4b6043] rounded-lg text-center">
             <h3 className="text-xl font-medium uppercase mb-4">
               International Performances
@@ -65,97 +67,25 @@ export default function Home() {
               in iconic venues.
             </p>
           </div>
+          {/* Highlight 3 */}
           <div className="p-6 border-2 border-[#4b6043] rounded-lg text-center">
             <h3 className="text-xl font-medium uppercase mb-4">
               Collaborations
             </h3>
             <p className="text-sm font-light">
-              Worked with Decoda and coached by members of the London Symphony
-              Orchestra.
+              Worked with Decoda and received mentoring from members of the
+              London Symphony Orchestra.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Featured Video Section */}
-      <div className="mt-16 px-8 lg:px-16">
-        <h2 className="text-2xl lg:text-3xl font-semibold text-center uppercase mb-8">
-          Featured Performance
-        </h2>
-        <div className="relative w-full lg:w-3/4 h-[50vh] mx-auto">
-          <iframe
-            className="w-full h-full border-2 border-[#4b6043] rounded-lg"
-            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-            title="Featured Performance"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </div>
-
-      {/* Testimonials Section */}
-      <div className="mt-16 px-8 lg:px-16">
-        <h2 className="text-2xl lg:text-3xl font-semibold text-center uppercase mb-8">
-          What People Are Saying
-        </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="p-6 border-2 border-[#4b6043] rounded-lg">
-            <p className="text-sm font-light italic">
-              "Sophia's performances are mesmerizing. Her passion and skill
-              bring music to life in a way that deeply moves her audience."
-            </p>
-            <p className="mt-4 text-right font-medium">– Music Critic</p>
-          </div>
-          <div className="p-6 border-2 border-[#4b6043] rounded-lg">
-            <p className="text-sm font-light italic">
-              "Working with Sophia was an incredible experience. She brings an
-              unmatched professionalism and artistry to every collaboration."
-            </p>
-            <p className="mt-4 text-right font-medium">
-              – Chamber Music Partner
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Quick Links Section */}
-      <div className="mt-16 px-8 lg:px-16 text-center">
-        <h2 className="text-2xl lg:text-3xl font-semibold uppercase mb-8">
-          Quick Links
-        </h2>
-        <div className="flex flex-wrap justify-center space-x-4">
-          <Link
-            href="/biography"
-            className="px-6 py-3 border-2 border-[#4b6043] rounded-lg uppercase text-sm font-medium tracking-wider hover:bg-[#4b6043] hover:text-white transition mb-4"
-          >
-            Biography
-          </Link>
-          <Link
-            href="/concerts"
-            className="px-6 py-3 border-2 border-[#4b6043] rounded-lg uppercase text-sm font-medium tracking-wider hover:bg-[#4b6043] hover:text-white transition mb-4"
-          >
-            Concerts
-          </Link>
-          <Link
-            href="/discography"
-            className="px-6 py-3 border-2 border-[#4b6043] rounded-lg uppercase text-sm font-medium tracking-wider hover:bg-[#4b6043] hover:text-white transition mb-4"
-          >
-            Discography
-          </Link>
-          <Link
-            href="/scores"
-            className="px-6 py-3 border-2 border-[#4b6043] rounded-lg uppercase text-sm font-medium tracking-wider hover:bg-[#4b6043] hover:text-white transition mb-4"
-          >
-            Scores
-          </Link>
-          <Link
-            href="/videos"
-            className="px-6 py-3 border-2 border-[#4b6043] rounded-lg uppercase text-sm font-medium tracking-wider hover:bg-[#4b6043] hover:text-white transition mb-4"
-          >
-            Videos
-          </Link>
-        </div>
-      </div>
+      {/* Footer Section */}
+      <footer className="mt-16 py-8 border-t-2 border-[#4b6043] text-center">
+        <p className="text-sm font-light">
+          © {new Date().getFullYear()} Sophia Renard. All rights reserved.
+        </p>
+      </footer>
     </div>
   );
 }

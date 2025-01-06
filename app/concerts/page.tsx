@@ -99,35 +99,32 @@ const Concerts: React.FC = () => {
       </div>
 
       {/* Main Title */}
-      <div className="font-merriweather text-4xl font-bold text-center uppercase mt-8 text-primary">
+      <div className="font-merriweather text-4xl font-bold text-center uppercase my-8 text-primary">
         Concerts
       </div>
 
       {/* Toggle between Next and Past Concerts */}
-      <div className="relative text-center font-montserrat mb-4">
-        <div className="flex justify-center p-8">
-          {/* Toggle buttons for Next and Past Concerts */}
-          <button
-            onClick={() => setShowNextConcerts(true)} // Switch to next concerts
-            className={`p-2 border-b-2 transition-all duration-300 ease-in-out ${
-              showNextConcerts
-                ? "border-[#4b6043] font-bold" // Green underline for active button
-                : "border-transparent"
-            }`}
-          >
-            Next Concerts
-          </button>
-          <button
-            onClick={() => setShowNextConcerts(false)} // Switch to past concerts
-            className={`p-2 border-b-2 transition-all duration-300 ease-in-out ${
-              !showNextConcerts
-                ? "border-[#4b6043] font-bold" // Green underline for active button
-                : "border-transparent"
-            }`}
-          >
-            Past Concerts
-          </button>
-        </div>
+      <div className="flex justify-center space-x-4 text-lg font-montserrat font-bold text-primary">
+        <span
+          className={`cursor-pointer ${
+            showNextConcerts
+              ? "text-primary underline"
+              : "text-textColor hover:text-hoverColor"
+          }`}
+          onClick={() => setShowNextConcerts(true)}
+        >
+          Next Concerts
+        </span>
+        <span
+          className={`cursor-pointer ${
+            !showNextConcerts
+              ? "text-primary underline"
+              : "text-textColor hover:text-hoverColor"
+          }`}
+          onClick={() => setShowNextConcerts(false)}
+        >
+          Past Concerts
+        </span>
       </div>
 
       {/* Display Next or Past Concerts */}
@@ -154,29 +151,47 @@ const Concerts: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Concert Details */}
-                <div className="w-3/4 flex flex-col ml-4">
-                  <div className="text-xl font-merriweather font-semibold">
-                    {concert.venue}, {concert.location}
+                {/* Location and Venue Section */}
+                <div className="w-2/4 font-montserrat text-textColor">
+                  <div>{concert.location}</div>
+                  <div className="font-bold">
+                    {concert.venue} – {formatDateTime(concert.date)}
                   </div>
-                  <div className="text-lg">{formatDateTime(concert.date)}</div>
-                  <div
-                    className="cursor-pointer mt-2 text-hoverColor"
+
+                  {/* Concert Details */}
+                  {visibleDetails.includes(concert._id) && (
+                    <div className="mt-4 p-4 bg-secondary">
+                      <p>{concert.details}</p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Details Button */}
+                <div className="w-1/4 flex flex-col items-center justify-center text-textColor">
+                  <button
                     onClick={() => toggleDetails(concert._id)}
+                    className="text-sm font-montserrat font-bold hover:text-primary"
                   >
                     {visibleDetails.includes(concert._id)
                       ? "Hide Details"
                       : "Show Details"}
-                  </div>
-                  {visibleDetails.includes(concert._id) && (
-                    <div className="text-textColor mt-2">{concert.details}</div>
-                  )}
+                  </button>
                 </div>
               </div>
             ))
           ) : (
-            <div className="text-center text-lg font-montserrat text-textColor">
-              No upcoming concerts available.
+            <p>No upcoming concerts.</p>
+          )}
+
+          {/* Show More Button */}
+          {nextConcerts.length > visibleConcertsCount && (
+            <div className="flex justify-center mt-6">
+              <button
+                onClick={handleShowMore}
+                className="bg-primary text-white py-2 px-4 rounded-lg"
+              >
+                Show More
+              </button>
             </div>
           )}
         </div>
@@ -203,43 +218,49 @@ const Concerts: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Concert Details */}
-                <div className="w-3/4 flex flex-col ml-4">
-                  <div className="text-xl font-merriweather font-semibold">
-                    {concert.venue}, {concert.location}
+                {/* Location and Venue Section */}
+                <div className="w-2/4 font-montserrat text-textColor">
+                  <div>{concert.location}</div>
+                  <div className="font-bold">
+                    {concert.venue} – {formatDateTime(concert.date)}
                   </div>
-                  <div className="text-lg">{formatDateTime(concert.date)}</div>
-                  <div
-                    className="cursor-pointer mt-2 text-hoverColor"
+
+                  {/* Concert Details */}
+                  {visibleDetails.includes(concert._id) && (
+                    <div className="mt-4 p-4 bg-secondary">
+                      <p>{concert.details}</p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Details Button */}
+                <div className="w-1/4 flex flex-col items-center justify-center text-textColor">
+                  <button
                     onClick={() => toggleDetails(concert._id)}
+                    className="text-sm font-montserrat font-bold hover:text-primary"
                   >
                     {visibleDetails.includes(concert._id)
                       ? "Hide Details"
                       : "Show Details"}
-                  </div>
-                  {visibleDetails.includes(concert._id) && (
-                    <div className="text-textColor mt-2">{concert.details}</div>
-                  )}
+                  </button>
                 </div>
               </div>
             ))
           ) : (
-            <div className="text-center text-lg font-montserrat text-textColor">
-              No past concerts available.
+            <p>No past concerts.</p>
+          )}
+
+          {/* Show More Button */}
+          {pastConcerts.length > visibleConcertsCount && (
+            <div className="flex justify-center mt-6">
+              <button
+                onClick={handleShowMore}
+                className="bg-primary text-white py-2 px-4 rounded-lg"
+              >
+                Show More
+              </button>
             </div>
           )}
-        </div>
-      )}
-
-      {/* Show More Button */}
-      {visibleConcertsCount < concerts.length && (
-        <div className="text-center mt-4">
-          <button
-            onClick={handleShowMore}
-            className="py-2 px-6 bg-primary text-white rounded-md hover:bg-hoverColor transition duration-300"
-          >
-            Show More
-          </button>
         </div>
       )}
     </div>

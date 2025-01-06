@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -36,10 +35,10 @@ export default function Header() {
       <Link href="/" aria-label="Home">
         <div className="font-merriweather tracking-widest cursor-pointer">
           <span className="text-sm xl:text-lg text-[#4b6043] uppercase">
-            Sophia
+            Aline
           </span>
           <span className="text-sm xl:text-xl text-[#658354] font-bold uppercase">
-            Renard
+            Christ
           </span>
           <span className="text-xs xl:text-base uppercase text-[#658354]">
             Cellist
@@ -69,42 +68,49 @@ export default function Header() {
       >
         <Link
           href="/biography"
+          onClick={() => setIsMenuOpen(false)}
           className="block xl:inline-block text-[#4b6043] hover:text-[#658354] uppercase tracking-wider text-center xl:text-left font-montserrat"
         >
           Biography
         </Link>
         <Link
           href="/concerts"
+          onClick={() => setIsMenuOpen(false)}
           className="block xl:inline-block text-[#4b6043] hover:text-[#658354] uppercase tracking-wider text-center xl:text-left font-montserrat"
         >
           Concerts
         </Link>
         <Link
           href="/discography"
+          onClick={() => setIsMenuOpen(false)}
           className="block xl:inline-block text-[#4b6043] hover:text-[#658354] uppercase tracking-wider text-center xl:text-left font-montserrat"
         >
           Discography
         </Link>
         <Link
           href="/scores"
+          onClick={() => setIsMenuOpen(false)}
           className="block xl:inline-block text-[#4b6043] hover:text-[#658354] uppercase tracking-wider text-center xl:text-left font-montserrat"
         >
           Scores
         </Link>
         <Link
           href="/gallery"
+          onClick={() => setIsMenuOpen(false)}
           className="block xl:inline-block text-[#4b6043] hover:text-[#658354] uppercase tracking-wider text-center xl:text-left font-montserrat"
         >
           Gallery
         </Link>
         <Link
           href="/videos"
+          onClick={() => setIsMenuOpen(false)}
           className="block xl:inline-block text-[#4b6043] hover:text-[#658354] uppercase tracking-wider text-center xl:text-left font-montserrat"
         >
           Videos
         </Link>
         <Link
           href="/contact"
+          onClick={() => setIsMenuOpen(false)}
           className="block xl:inline-block text-[#4b6043] hover:text-[#658354] uppercase tracking-wider text-center xl:text-left font-montserrat"
         >
           Contact

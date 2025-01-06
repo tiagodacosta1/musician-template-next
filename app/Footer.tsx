@@ -16,9 +16,9 @@ const Footer = () => {
         <div className="text-center xl:text-left">
           <Link href="/" aria-label="Home">
             <div className="text-sm xl:text-lg font-merriweather tracking-widest cursor-pointer">
-              <span className="text-[#4b6043] uppercase">Sophia</span>
+              <span className="text-[#4b6043] uppercase">Aline</span>
               <span className="text-[#658354] font-bold uppercase xl:text-xl">
-                Renard
+                Christ
               </span>
               <span className="text-xs xl:text-base uppercase text-[#658354]">
                 Cellist

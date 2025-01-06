@@ -21,7 +21,7 @@ const Contact: React.FC = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setContactForm({ ...contactForm, [name]: value });
+    setContactForm((prevForm) => ({ ...prevForm, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {

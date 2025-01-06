@@ -99,6 +99,7 @@ const GalleryPage: React.FC = () => {
             <button
               className="absolute top-4 right-4 text-white text-3xl font-bold"
               onClick={closeModal}
+              aria-label="Close full-screen image"
             >
               &times;
             </button>

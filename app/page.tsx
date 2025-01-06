@@ -18,7 +18,7 @@ export default function Home() {
       {/* Welcome Section */}
       <div className="text-center px-6 lg:px-0">
         <h1 className="text-3xl lg:text-5xl font-merriweather tracking-wide uppercase mb-6">
-          Sophia Renard
+          Aline Christ
         </h1>
         <p className="text-lg lg:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-8">
           Welcome to my official website. Explore my journey as a cellist,

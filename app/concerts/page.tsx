@@ -1,11 +1,11 @@
-"use client"; // Ensure this file is treated as a client component
+"use client";
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
 interface Concert {
   _id: string;
-  date: string; // datetime field
+  date: string;
   location: string;
   venue: string;
   details: string;
@@ -14,11 +14,9 @@ interface Concert {
 const Concerts: React.FC = () => {
   const [visibleDetails, setVisibleDetails] = useState<string[]>([]);
   const [concerts, setConcerts] = useState<Concert[]>([]);
-  const [visibleConcertsCount, setVisibleConcertsCount] = useState<number>(4);
-  const [showNextConcerts, setShowNextConcerts] = useState<boolean>(true); // Toggle between Next and Past concerts
+  const [showNextConcerts, setShowNextConcerts] = useState<boolean>(true);
 
   useEffect(() => {
-    // Replace this with static data or local JSON file instead of fetching from Sanity
     const mockConcerts: Concert[] = [
       {
         _id: "1",
@@ -43,23 +41,9 @@ const Concerts: React.FC = () => {
         venue: "Berliner Philharmonie",
         details: "An orchestral performance with renowned soloists.",
       },
-      // Add more concert objects as needed
     ];
-
     setConcerts(mockConcerts);
   }, []);
-
-  const toggleDetails = (id: string) => {
-    if (visibleDetails.includes(id)) {
-      setVisibleDetails(visibleDetails.filter((concertId) => concertId !== id));
-    } else {
-      setVisibleDetails([...visibleDetails, id]);
-    }
-  };
-
-  const handleShowMore = () => {
-    setVisibleConcertsCount(visibleConcertsCount + 4);
-  };
 
   const formatDateTime = (isoString: string) => {
     const date = new Date(isoString);
@@ -83,186 +67,117 @@ const Concerts: React.FC = () => {
     (concert) => new Date(concert.date) < currentDate
   );
 
+  function toggleDetails(_id: string): void {
+    setVisibleDetails((prevDetails) =>
+      prevDetails.includes(_id)
+        ? prevDetails.filter((id) => id !== _id)
+        : [...prevDetails, _id]
+    );
+  }
   return (
-    <div className="bg-bgColor min-h-screen">
-      {/* Banner Image */}
-      <div className="relative w-full lg:w-3/4 mx-auto mb-8">
-        <div className="relative h-[50vh]">
-          <Image
-            src="/Aline/IMG_2469.JPEG" // Image path
-            alt="Aline's biography image"
-            fill
-            className="object-cover"
-            priority
-          />
+    <div className="bg-white text-[#4b6043] min-h-screen">
+      {/* Hero Section */}{" "}
+      <div className="relative w-full w-11/12 h-[60vh] mx-auto mb-12">
+        <Image
+          src="/Aline/IMG_2472.JPEG"
+          alt="Aline's biography image"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+      {/* Gallery Title */}
+      <div className="text-center mb-12">
+        <h1 className="text-[#4b6043] text-3xl lg:text-5xl font-merriweather tracking-wide uppercase mb-6">
+          Concerts
+        </h1>
+        <p className="text-lg lg:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-8">
+          Concerts description
+        </p>
+      </div>
+      {/* Toggle Section */}
+      <div className="text-center mb-8">
+        <div className="flex justify-center space-x-4">
+          <button
+            onClick={() => setShowNextConcerts(true)}
+            className={`px-6 py-3 border-2 border-[#4b6043] rounded-lg uppercase text-sm font-medium tracking-wider transition ${
+              showNextConcerts
+                ? "bg-[#4b6043] text-white"
+                : "hover:bg-[#4b6043] hover:text-white"
+            }`}
+          >
+            Next Concerts
+          </button>
+          <button
+            onClick={() => setShowNextConcerts(false)}
+            className={`px-6 py-3 border-2 border-[#4b6043] rounded-lg uppercase text-sm font-medium tracking-wider transition ${
+              !showNextConcerts
+                ? "bg-[#4b6043] text-white"
+                : "hover:bg-[#4b6043] hover:text-white"
+            }`}
+          >
+            Past Concerts
+          </button>
         </div>
       </div>
-
-      {/* Main Title */}
-      <div className="font-merriweather text-4xl font-bold text-center uppercase my-8 text-primary">
-        Concerts
-      </div>
-
-      {/* Toggle between Next and Past Concerts */}
-      <div className="flex justify-center space-x-4 text-lg font-montserrat font-bold text-primary">
-        <span
-          className={`cursor-pointer ${
-            showNextConcerts
-              ? "text-primary underline"
-              : "text-textColor hover:text-hoverColor"
-          }`}
-          onClick={() => setShowNextConcerts(true)}
-        >
-          Next Concerts
-        </span>
-        <span
-          className={`cursor-pointer ${
-            !showNextConcerts
-              ? "text-primary underline"
-              : "text-textColor hover:text-hoverColor"
-          }`}
-          onClick={() => setShowNextConcerts(false)}
-        >
-          Past Concerts
-        </span>
-      </div>
-
-      {/* Display Next or Past Concerts */}
-      {showNextConcerts ? (
-        <div>
-          {nextConcerts.length > 0 ? (
-            nextConcerts.slice(0, visibleConcertsCount).map((concert) => (
+      {/* Concerts Section */}
+      <div className="max-w-4xl mx-auto p-6">
+        {showNextConcerts ? (
+          <div>
+            <h2 className="text-2xl font-semibold uppercase mb-6">
+              Upcoming Concerts
+            </h2>
+            {nextConcerts.map((concert) => (
               <div
                 key={concert._id}
-                className="flex justify-between max-w-4xl mx-auto my-4 border-b border-dashed border-secondary pb-4"
+                className="p-4 border-2 border-[#4b6043] rounded-lg mb-4"
               >
-                {/* Date Section */}
-                <div className="w-1/4 flex flex-row font-merriweather font-bold text-lg text-textColor">
-                  <div className="text-2xl">
-                    {new Date(concert.date).getDate()}
-                  </div>
-                  <div className="flex flex-col ml-2">
-                    <div>
-                      {new Date(concert.date).toLocaleString("default", {
-                        month: "long",
-                      })}
-                    </div>
-                    <div>{new Date(concert.date).getFullYear()}</div>
-                  </div>
-                </div>
-
-                {/* Location and Venue Section */}
-                <div className="w-2/4 font-montserrat text-textColor">
-                  <div>{concert.location}</div>
-                  <div className="font-bold">
-                    {concert.venue} – {formatDateTime(concert.date)}
-                  </div>
-
-                  {/* Concert Details */}
-                  {visibleDetails.includes(concert._id) && (
-                    <div className="mt-4 p-4 bg-secondary">
-                      <p>{concert.details}</p>
-                    </div>
-                  )}
-                </div>
-
-                {/* Details Button */}
-                <div className="w-1/4 flex flex-col items-center justify-center text-textColor">
-                  <button
-                    onClick={() => toggleDetails(concert._id)}
-                    className="text-sm font-montserrat font-bold hover:text-primary"
-                  >
-                    {visibleDetails.includes(concert._id)
-                      ? "Hide Details"
-                      : "Show Details"}
-                  </button>
-                </div>
+                <h3 className="text-xl font-medium mb-2">{concert.venue}</h3>
+                <p className="text-sm mb-2">{formatDateTime(concert.date)}</p>
+                <p className="text-sm mb-2">{concert.location}</p>
+                <button
+                  onClick={() => toggleDetails(concert._id)}
+                  className="text-[#4b6043] font-medium hover:underline"
+                >
+                  {visibleDetails.includes(concert._id)
+                    ? "Hide Details"
+                    : "View Details"}
+                </button>
+                {visibleDetails.includes(concert._id) && (
+                  <p className="text-sm mt-2">{concert.details}</p>
+                )}
               </div>
-            ))
-          ) : (
-            <p>No upcoming concerts.</p>
-          )}
-
-          {/* Show More Button */}
-          {nextConcerts.length > visibleConcertsCount && (
-            <div className="flex justify-center mt-6">
-              <button
-                onClick={handleShowMore}
-                className="bg-primary text-white py-2 px-4 rounded-lg"
-              >
-                Show More
-              </button>
-            </div>
-          )}
-        </div>
-      ) : (
-        <div>
-          {pastConcerts.length > 0 ? (
-            pastConcerts.slice(0, visibleConcertsCount).map((concert) => (
+            ))}
+          </div>
+        ) : (
+          <div>
+            <h2 className="text-2xl font-semibold uppercase mb-6">
+              Past Concerts
+            </h2>
+            {pastConcerts.map((concert) => (
               <div
                 key={concert._id}
-                className="flex justify-between max-w-4xl mx-auto my-4 border-b border-dashed border-secondary pb-4"
+                className="p-4 border-2 border-[#4b6043] rounded-lg mb-4"
               >
-                {/* Date Section */}
-                <div className="w-1/4 flex flex-row font-merriweather font-bold text-lg text-textColor">
-                  <div className="text-2xl">
-                    {new Date(concert.date).getDate()}
-                  </div>
-                  <div className="flex flex-col ml-2">
-                    <div>
-                      {new Date(concert.date).toLocaleString("default", {
-                        month: "long",
-                      })}
-                    </div>
-                    <div>{new Date(concert.date).getFullYear()}</div>
-                  </div>
-                </div>
-
-                {/* Location and Venue Section */}
-                <div className="w-2/4 font-montserrat text-textColor">
-                  <div>{concert.location}</div>
-                  <div className="font-bold">
-                    {concert.venue} – {formatDateTime(concert.date)}
-                  </div>
-
-                  {/* Concert Details */}
-                  {visibleDetails.includes(concert._id) && (
-                    <div className="mt-4 p-4 bg-secondary">
-                      <p>{concert.details}</p>
-                    </div>
-                  )}
-                </div>
-
-                {/* Details Button */}
-                <div className="w-1/4 flex flex-col items-center justify-center text-textColor">
-                  <button
-                    onClick={() => toggleDetails(concert._id)}
-                    className="text-sm font-montserrat font-bold hover:text-primary"
-                  >
-                    {visibleDetails.includes(concert._id)
-                      ? "Hide Details"
-                      : "Show Details"}
-                  </button>
-                </div>
+                <h3 className="text-xl font-medium mb-2">{concert.venue}</h3>
+                <p className="text-sm mb-2">{formatDateTime(concert.date)}</p>
+                <p className="text-sm mb-2">{concert.location}</p>
+                <button
+                  onClick={() => toggleDetails(concert._id)}
+                  className="text-[#4b6043] font-medium hover:underline"
+                >
+                  {visibleDetails.includes(concert._id)
+                    ? "Hide Details"
+                    : "View Details"}
+                </button>
+                {visibleDetails.includes(concert._id) && (
+                  <p className="text-sm mt-2">{concert.details}</p>
+                )}
               </div>
-            ))
-          ) : (
-            <p>No past concerts.</p>
-          )}
-
-          {/* Show More Button */}
-          {pastConcerts.length > visibleConcertsCount && (
-            <div className="flex justify-center mt-6">
-              <button
-                onClick={handleShowMore}
-                className="bg-primary text-white py-2 px-4 rounded-lg"
-              >
-                Show More
-              </button>
-            </div>
-          )}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

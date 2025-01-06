@@ -5,9 +5,9 @@ export default function Home() {
   return (
     <div className="bg-white text-[#4b6043]">
       {/* Hero Section */}
-      <div className="relative w-full lg:w-3/4 h-[70vh] mx-auto mb-12">
+      <div className="relative w-full w-11/12 h-[60vh] mx-auto mb-12">
         <Image
-          src="/Aline/IMG_2469.JPEG"
+          src="/Aline/IMG_2472.JPEG"
           alt="Aline's biography image"
           fill
           className="object-cover"

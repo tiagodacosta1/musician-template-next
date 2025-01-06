@@ -50,12 +50,12 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full lg:w-3/4 mx-auto mb-8">
+    <div>
       {/* Banner Image */}
-      <div className="relative h-[60vh] mb-8">
+      <div className="relative w-full w-11/12 h-[60vh] mx-auto mb-12">
         <Image
-          src="/Aline/IMG_2469.JPEG" // Change image path as needed
-          alt="Contact Aline"
+          src="/Aline/IMG_2472.JPEG"
+          alt="Aline's biography image"
           fill
           className="object-cover"
           priority

@@ -38,12 +38,12 @@ const GalleryPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-white text-[#4b6043]">
+    <div className="bg-white ">
       {/* Page Image */}
-      <div className="relative w-full lg:w-3/4 h-[80vh] mx-auto mb-12 rounded-lg shadow-2xl overflow-hidden">
+      <div className="relative w-full w-11/12 h-[60vh] mx-auto mb-12">
         <Image
-          src={data.pageImage.imageUrl}
-          alt={data.pageImage.alt}
+          src="/Aline/IMG_2472.JPEG"
+          alt="Aline's biography image"
           fill
           className="object-cover"
           priority
@@ -52,7 +52,7 @@ const GalleryPage: React.FC = () => {
 
       {/* Gallery Title */}
       <div className="text-center mb-12">
-        <h1 className="text-3xl lg:text-5xl font-merriweather tracking-wide uppercase mb-6">
+        <h1 className="text-[#4b6043] text-3xl lg:text-5xl font-merriweather tracking-wide uppercase mb-6">
           Gallery
         </h1>
         <p className="text-lg lg:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-8">

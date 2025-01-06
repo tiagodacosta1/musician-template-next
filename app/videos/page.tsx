@@ -62,16 +62,10 @@ const VideosPage: React.FC = () => {
   return (
     <>
       {/* Header Section */}
-      <div className="text-center my-12">
-        <h1 className="text-4xl font-bold text-primary mb-4">Our Videos</h1>
-        <p className="text-xl font-merriweather text-textColor mx-auto w-full sm:w-3/4">
-          Explore our collection of videos where we showcase some of our most
-          important moments. Dive into each video and enjoy the experience.
-        </p>
-      </div>
 
       {/* Page Video */}
-      <div className="relative w-full lg:w-3/4 h-[80vh] mx-auto mb-12 rounded-lg shadow-2xl overflow-hidden">
+
+      <div className="relative w-full w-11/12 h-[60vh] mx-auto mb-12">
         <iframe
           className="w-full h-full object-cover"
           src={getEmbedUrl(data.pageImage.videoUrl)} // Convert the video URL to embed URL
@@ -80,9 +74,18 @@ const VideosPage: React.FC = () => {
           title={data.pageImage.alt || "Introductory Video"}
         ></iframe>
       </div>
+      <div className="text-center mb-12">
+        <h1 className="text-[#4b6043] text-3xl lg:text-5xl font-merriweather tracking-wide uppercase mb-6">
+          Videos
+        </h1>
+        <p className="text-lg lg:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-8">
+          Explore a selection of my videos. Click on any video to view in full
+          screen.
+        </p>
+      </div>
 
       {/* Videos Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4 md:px-8">
         {data.videos.map((video, index) => (
           <div
             key={index}

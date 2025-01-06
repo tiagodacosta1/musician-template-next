@@ -67,23 +67,22 @@ export default function BiographyPage() {
   ));
 
   return (
-    <div className="bg-white text-[#4b6043]">
+    <div className="bg-white ">
       {/* Image with the specified path */}
-      <div className="relative w-full lg:w-3/4 mx-auto mb-8">
-        <div className="relative h-[50vh]">
-          <Image
-            src="/Aline/IMG_2469.JPEG" // Image path
-            alt="Aline's biography image"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+
+      <div className="relative w-full w-11/12 h-[60vh] mx-auto mb-12">
+        <Image
+          src="/Aline/IMG_2472.JPEG"
+          alt="Aline's biography image"
+          fill
+          className="object-cover"
+          priority
+        />
       </div>
 
       {/* Display the title */}
       {biography.title && (
-        <h1 className="text-4xl font-merriweather text-center p-8 tracking-wide uppercase">
+        <h1 className="text-[#4b6043] text-4xl font-merriweather text-center p-8 tracking-wide uppercase">
           {biography.title}
         </h1>
       )}
@@ -95,7 +94,7 @@ export default function BiographyPage() {
             <button
               key={lang.language}
               onClick={() => handleLanguageChange(lang.language)}
-              className={`p-2 border-b-2 transition-all duration-300 ease-in-out ${
+              className={`text-[#4b6043] p-2 border-b-2 transition-all duration-300 ease-in-out ${
                 selectedLanguage === lang.language
                   ? "border-[#4b6043] font-bold"
                   : "border-transparent"
